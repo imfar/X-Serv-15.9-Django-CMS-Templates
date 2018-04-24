@@ -21,10 +21,10 @@ from django.views.static import serve
 urlpatterns = [
     url(r'^$', 'cms_templates.views.root_page'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^I_See_New_People/(.*)', serve, {'document_root': 'templates/I_See_New_People'}),
     url(r'^annotated/$', 'cms_templates.views.root_page'),
     url(r'^annotated/(.+)', 'cms_templates.views.annotated'),
     url(r'^login$', login),
     url(r'^logout', logout),
     url(r'^accounts/profile', RedirectView.as_view(url='/', permanent=False)),
+    url(r'static/(.*)$', serve, {'document_root': 'templates/I_See_New_People'}),
 ]
